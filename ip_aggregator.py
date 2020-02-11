@@ -41,14 +41,14 @@ def groupIPs(grouped_ips):
         ip_range = makeBinaryNetwork(first)+"/"+str(cidr)
         print(ip_range)
 
-filepath = 'ips2.txt'
+filepath = 'sample_ips.txt'
 ips = []
 with open(filepath) as fp:
     line = fp.readline()
     cnt = 1
     while line:
         #print("INPUT Line {}: {}".format(cnt, line.strip()))
-        if line == "":
+        if line == "" or line[0] == "#": #if its a blank line or a comment
             break
         #print(line)
         ip, cidr = line.split("/")
